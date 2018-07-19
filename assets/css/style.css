@@ -1,3 +1,7 @@
+body{
+    background-color: lightslategray;
+}
+
 .jumbotron{
     background-color: purple;
 }
@@ -8,15 +12,24 @@
 
 
 #add-train{
-    background-color: purple;
+    background-color: gold;
     color: gold;
 }
 
 
 h4{
     text-align: center;
+    color: gold;
 }
 
+.text-center{
+    font-size: 50px;
+    color: gold;
+}
+
+h5{
+    color: purple;
+}
 
 #add-user{
     background-color: purple;
