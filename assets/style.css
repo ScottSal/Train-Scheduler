@@ -1,15 +1,15 @@
 .jumbotron{
-    background-color: red;
+    background-color: purple;
 }
 
 .card-header{
-    background-color: white;
+    background-color: gold;
 }
 
 
 #add-train{
-    background-color: blue;
-    color: white;
+    background-color: purple;
+    color: gold;
 }
 
 
@@ -19,5 +19,5 @@ h4{
 
 
 #add-user{
-    background-color: blue;
+    background-color: purple;
 }
