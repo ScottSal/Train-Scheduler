@@ -14,7 +14,7 @@ var database = firebase.database();
 setInterval(function(){
     $('.current-time').html(moment().format('dddd, MMMM D YYYY, h:mm:ss A'))
 }, 1000);
-
+//User input on click
 $("#add-user").on("click", function (event) {
     event.preventDefault();
     $("#name-input").empty();
@@ -36,7 +36,7 @@ $("#add-user").on("click", function (event) {
   
     var nextArrival = nowMoment.add(minutesAway, "minutes");
     var formatNextArrival = nextArrival.format("hh:mm A");
-
+    //console logging user inputs
     console.log(trainName);
     console.log(destination);
     console.log(firstTrain);
@@ -54,7 +54,7 @@ $("#add-user").on("click", function (event) {
     });
 
 });
-
+    //Adding info to firebase
     database.ref().on("child_added", function (snapshot) {
         
         var tableItem = $("<tr>");
