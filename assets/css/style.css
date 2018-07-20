@@ -4,12 +4,17 @@ body{
 
 .jumbotron{
     background-color: purple;
+    outline: solid 2px black;
+    height: 55%;
 }
 
 .card-header{
     background-color: gold;
 }
 
+.card {
+    outline: solid 2px black;
+}
 
 #add-train{
     background-color: gold;
@@ -33,4 +38,18 @@ h5{
 
 #add-user{
     background-color: purple;
+    color: gold;
+    border: solid 2px black;
+}
+
+#add-user:hover {
+    background-color: gold;
+    color: purple;
+    border: solid 2px black;
+
+}
+
+.current-time {
+    text-align: center;
+    color: white;
 }

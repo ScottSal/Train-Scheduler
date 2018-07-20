@@ -9,9 +9,11 @@ var config = {
   };
   firebase.initializeApp(config);
 
-
 var database = firebase.database();
 
+setInterval(function(){
+    $('.current-time').html(moment().format('dddd, MMMM D YYYY, h:mm:ss A'))
+}, 1000);
 
 $("#add-user").on("click", function (event) {
     event.preventDefault();
@@ -20,14 +22,12 @@ $("#add-user").on("click", function (event) {
     $("#time-input").empty();
     $("#frequency-input").empty();
 
-
-
     var trainName = $("#name-input").val().trim();
     var destination = $("#destination-input").val().trim();
     var firstTrain = $("#time-input").val().trim();
     var frequency = $("#frequency-input").val().trim();
 
-    var firstTrainMoment = moment(firstTrain, "HH:mm a");
+    var firstTrainMoment = moment(firstTrain, "hh:mm A");
     var nowMoment = moment();
   
     var minutesSinceFirstArrival = nowMoment.diff(firstTrainMoment, "minutes");
@@ -35,9 +35,7 @@ $("#add-user").on("click", function (event) {
     var minutesAway = frequency - minutesSinceLastArrival;
   
     var nextArrival = nowMoment.add(minutesAway, "minutes");
-    var formatNextArrival = nextArrival.format("HH:mm");
-
-    
+    var formatNextArrival = nextArrival.format("hh:mm A");
 
     console.log(trainName);
     console.log(destination);
@@ -45,8 +43,6 @@ $("#add-user").on("click", function (event) {
     console.log(frequency);
     console.log(formatNextArrival);
     console.log(minutesAway);
-
-
 
     database.ref().push({
         trainName: trainName,
@@ -59,13 +55,10 @@ $("#add-user").on("click", function (event) {
 
 });
 
-
-
     database.ref().on("child_added", function (snapshot) {
         
         var tableItem = $("<tr>");
         var row = $("<td>")
-
 
         row = $("<td>" + snapshot.val().trainName + "</td>");
         tableItem.append(row);
@@ -87,6 +80,4 @@ $("#add-user").on("click", function (event) {
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
     
-
-
 });
